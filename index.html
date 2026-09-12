@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessible Component Library</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/forms.css" />
+    <link rel="stylesheet" href="styles/modal.css" />
+    <link rel="stylesheet" href="styles/pricing.css" />
+    <link rel="stylesheet" href="styles/tabs.css" />
+</head>
+
+<body>
+
+    <!-- Accessible Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation Component -->
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="#" class="brand-logo" aria-label="Home page">
+                DevSuite
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu"
+                aria-label="Toggle navigation menu">
+                <span class="hamburger"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <ul id="nav-menu" class="nav-menu">
+                <li class="nav-item"><a href="#main-content" class="nav-link">Components</a></li>
+                <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li class="nav-item"><a href="#docs" class="nav-link">Docs</a></li>
+                <li class="nav-item">
+                    <button class="btn btn-primary" id="open-modal-btn">Get Started</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="hero-placeholder">
+            <h1>Accessible Component Library</h1>
+            <p>Building accessible, responsive UI primitives using pure HTML, CSS, and JS.</p>
+        </section>
+        <!-- Modal Dialog Primitive -->
+        <dialog id="demo-modal" class="modal" aria-labelledby="modal-title" aria-describedby="modal-description">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2 id="modal-title" class="modal-title">Get Started with DevSuite</h2>
+                    <button type="button" class="modal-close-btn" id="close-modal-btn" aria-label="Close dialog">
+                        &times;
+                    </button>
+                </header>
+
+                <div class="modal-body">
+                    <p id="modal-description">
+                        Create your developer account to access thousands of accessible UI components, templates, and
+                        full project boilerplates.
+                    </p>
+                    <form id="modal-form" method="dialog" class="modal-form">
+                        <label for="user-email" class="form-label">Email Address</label>
+                        <input type="email" id="user-email" class="form-input" placeholder="developer@example.com"
+                            required />
+                    </form>
+                </div>
+
+                <footer class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancel-modal-btn">Cancel</button>
+                    <button type="submit" form="modal-form" class="btn btn-primary">Create Account</button>
+                </footer>
+            </div>
+        </dialog>
+        <!-- Pricing Section Component -->
+        <section id="pricing" class="pricing-section" aria-labelledby="pricing-title">
+            <div class="pricing-header">
+                <h2 id="pricing-title" class="section-title">Flexible Plans for Every Developer</h2>
+                <p class="section-subtitle">Choose the perfect tier to start building accessible, modern applications.
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Tier 1: Free Starter -->
+                <article class="pricing-card">
+                    <div class="card-header">
+                        <h3 class="plan-title">Starter</h3>
+                        <p class="plan-desc">For hobbyists and individual learners.</p>
+                        <div class="plan-price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features" aria-label="Starter plan features">
+                        <li class="feature-item">5 Core Components</li>
+                        <li class="feature-item">Community Forum Access</li>
+                        <li class="feature-item">Standard CSS Documentation</li>
+                    </ul>
+                    <button class="btn btn-secondary card-btn">Get Started</button>
+                </article>
+
+                <!-- Tier 2: Pro (Highlighted) -->
+                <article class="pricing-card card-popular">
+                    <div class="badge" aria-label="Most popular plan">Most Popular</div>
+                    <div class="card-header">
+                        <h3 class="plan-title">Pro Developer</h3>
+                        <p class="plan-desc">For freelancers and full-stack builders.</p>
+                        <div class="plan-price">
+                            <span class="currency">$</span>
+                            <span class="amount">29</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features" aria-label="Pro plan features">
+                        <li class="feature-item">All 50+ Accessible Primitives</li>
+                        <li class="feature-item">Priority Discord Support</li>
+                        <li class="feature-item">Figma & Blender Source Files</li>
+                        <li class="feature-item">Unlimited Projects</li>
+                    </ul>
+                    <button class="btn btn-primary card-btn">Upgrade to Pro</button>
+                </article>
+
+                <!-- Tier 3: Enterprise -->
+                <article class="pricing-card">
+                    <div class="card-header">
+                        <h3 class="plan-title">Enterprise</h3>
+                        <p class="plan-desc">For engineering teams and scaling startups.</p>
+                        <div class="plan-price">
+                            <span class="currency">$</span>
+                            <span class="amount">99</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features" aria-label="Enterprise plan features">
+                        <li class="feature-item">Custom Component Requests</li>
+                        <li class="feature-item">1-on-1 Accessibility Audits</li>
+                        <li class="feature-item">Dedicated SLA Support</li>
+                        <li class="feature-item">Custom Team Training</li>
+                    </ul>
+                    <button class="btn btn-secondary card-btn">Contact Sales</button>
+                </article>
+            </div>
+        </section>
+        <!-- Interactive Form & Accessible Validation Component -->
+        <section id="contact-form-section" class="form-section" aria-labelledby="form-title">
+            <div class="form-card">
+                <h2 id="form-title" class="form-title">Developer Registration</h2>
+                <p class="form-subtitle">Fill out your profile details. All inputs feature real-time accessible error
+                    announcements.</p>
+
+                <form id="accessible-form" class="accessible-form" novalidate>
+                    <!-- Input Group 1: Full Name -->
+                    <div class="form-group" id="group-name">
+                        <label for="user-name" class="form-label">
+                            Full Name <span class="required-asterisk" aria-hidden="true">*</span>
+                        </label>
+                        <input type="text" id="user-name" name="username" class="form-input"
+                            placeholder="e.g. Ada Lovelace" required aria-required="true"
+                            aria-describedby="name-error name-hint" />
+                        <span id="name-hint" class="form-hint">Must be at least 3 characters long.</span>
+                        <span id="name-error" class="form-error" aria-live="polite"></span>
+                    </div>
+
+                    <!-- Input Group 2: Work Email -->
+                    <div class="form-group" id="group-email">
+                        <label for="work-email" class="form-label">
+                            Work Email <span class="required-asterisk" aria-hidden="true">*</span>
+                        </label>
+                        <input type="email" id="work-email" name="email" class="form-input"
+                            placeholder="ada@lovelace.dev" required aria-required="true"
+                            aria-describedby="email-error" />
+                        <span id="email-error" class="form-error" aria-live="polite"></span>
+                    </div>
+
+                    <!-- Input Group 3: Password -->
+                    <div class="form-group" id="group-password">
+                        <label for="user-password" class="form-label">
+                            Password <span class="required-asterisk" aria-hidden="true">*</span>
+                        </label>
+                        <input type="password" id="user-password" name="password" class="form-input" required
+                            aria-required="true" aria-describedby="password-hint password-error" minlength="8" />
+                        <span id="password-hint" class="form-hint">At least 8 characters with 1 number.</span>
+                        <span id="password-error" class="form-error" aria-live="polite"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary form-submit-btn">Complete Registration</button>
+
+                    <!-- Global Form Alert Container -->
+                    <div id="form-status" class="form-status" role="status" aria-live="assertive"></div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/form.js"></script>
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/tabs.js"></script>
+</body>
+
+</html>
