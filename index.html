@@ -4,13 +4,29 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accessible Component Library</title>
+    <title>DevSuite - Accessible UI Components</title>
+    <meta name="description"
+        content="Simple, accessible UI components built with HTML, CSS, and JavaScript. Responsive, clean, and screen reader friendly." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/navbar.css" />
     <link rel="stylesheet" href="styles/forms.css" />
     <link rel="stylesheet" href="styles/modal.css" />
     <link rel="stylesheet" href="styles/pricing.css" />
     <link rel="stylesheet" href="styles/tabs.css" />
+    <link rel="stylesheet" href="styles/accordion.css" />
+    <link rel="stylesheet" href="styles/table.css" />
+    <link rel="stylesheet" href="styles/toast.css" />
+    <link rel="stylesheet" href="styles/tooltip.css" />
+    <link rel="stylesheet" href="styles/a11y-toolbar.css" />
 </head>
 
 <body>
@@ -18,11 +34,20 @@
     <!-- Accessible Skip Link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Navigation Component -->
+    <!-- Top Accessibility Controls Bar -->
+    <!-- Accessibility bar removed -->
+
+    <!-- Navigation Header Component -->
     <header class="site-header">
         <nav class="navbar" aria-label="Main Navigation">
-            <a href="#" class="brand-logo" aria-label="Home page">
-                DevSuite
+            <a href="#" class="brand-logo" aria-label="DevSuite Home Page">
+                <svg class="brand-icon-svg" viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="8" height="8" rx="2" fill="currentColor" />
+                    <rect x="13" y="3" width="8" height="8" rx="2" fill="currentColor" opacity="0.7" />
+                    <rect x="3" y="13" width="8" height="8" rx="2" fill="currentColor" opacity="0.7" />
+                    <rect x="13" y="13" width="8" height="8" rx="2" fill="currentColor" />
+                </svg>
+                DevSuite UI
             </a>
 
             <!-- Mobile Toggle Button -->
@@ -33,26 +58,358 @@
 
             <!-- Navigation Links -->
             <ul id="nav-menu" class="nav-menu">
-                <li class="nav-item"><a href="#main-content" class="nav-link">Components</a></li>
+                <li class="nav-item"><a href="#tabs-section" class="nav-link">Tabs</a></li>
+                <li class="nav-item"><a href="#accordion-section" class="nav-link">Accordion</a></li>
+                <li class="nav-item"><a href="#table-section" class="nav-link">Table</a></li>
                 <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
-                <li class="nav-item"><a href="#docs" class="nav-link">Docs</a></li>
+                <li class="nav-item"><a href="#contact-form-section" class="nav-link">Contact</a></li>
                 <li class="nav-item">
-                    <button class="btn btn-primary" id="open-modal-btn">Get Started</button>
+                    <button class="btn btn-primary btn-sm" id="open-modal-btn">Get Started</button>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <main id="main-content">
-        <section class="hero-placeholder">
-            <h1>Accessible Component Library</h1>
-            <p>Building accessible, responsive UI primitives using pure HTML, CSS, and JS.</p>
+    <main id="main-content" class="page-container">
+
+        <!-- Hero Showcase Banner -->
+        <section class="hero-showcase" aria-labelledby="hero-title">
+            <div class="showcase-pill">Free & Accessible UI Kit</div>
+            <h1 id="hero-title">Build Accessible Web Applications</h1>
+            <p>
+                A clean, modern component library built with simple HTML, CSS, and JavaScript.
+                Fully responsive, easy to customize, and built for keyboard and screen reader accessibility.
+            </p>
+
+            <div class="showcase-stats">
+                <div class="stat-item">
+                    <span class="stat-lbl">Screen Reader Friendly</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">8 Components</span>
+                    <span class="stat-lbl">Ready to Use</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">Clean Design</span>
+                    <span class="stat-lbl">Modern Styling</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">No Setup</span>
+                    <span class="stat-lbl">Zero Dependencies</span>
+                </div>
+            </div>
         </section>
-        <!-- Modal Dialog Primitive -->
+
+        <!-- Live Screen Reader Announcer Box -->
+        <section class="a11y-live-logger" aria-labelledby="logger-heading">
+            <div class="logger-header">
+                <div class="logger-title" id="logger-heading">
+                    <span class="logger-status-dot"></span>
+                    Screen Reader Activity Log
+                </div>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Live Updates</span>
+            </div>
+            <div id="a11y-logger-output" class="logger-terminal" role="status" aria-live="polite">
+                <div>[Ready] Click buttons or use your keyboard on components below to see live screen reader updates
+                    here.</div>
+            </div>
+        </section>
+
+        <!-- Component 1: Tabs -->
+        <section id="tabs-section" class="tabs-section" aria-labelledby="tabs-heading">
+            <div class="tabs-container">
+                <div class="component-showcase-header">
+                    <div>
+                        <h2 id="tabs-heading" class="section-title" style="font-size: 1.5rem;">Tabs Component</h2>
+                        <p class="section-subtitle">Switch between different views using clicks or keyboard arrow keys.
+                        </p>
+                    </div>
+                    <button class="code-toggle-btn" data-target-code="code-tabs" aria-expanded="false">
+                        View Code
+                    </button>
+                </div>
+
+                <div class="tab-list" role="tablist" aria-label="Component Tabs">
+                    <button role="tab" aria-selected="true" aria-controls="panel-arch" id="tab-arch"
+                        class="tab-btn active">
+                        Overview
+                    </button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-wcag" id="tab-wcag" class="tab-btn"
+                        tabindex="-1">
+                        Features
+                    </button>
+                    <button role="tab" aria-selected="false" aria-controls="panel-specs" id="tab-specs" class="tab-btn"
+                        tabindex="-1">
+                        Keyboard Controls
+                    </button>
+                </div>
+
+                <div id="panel-arch" role="tabpanel" aria-labelledby="tab-arch" class="tab-panel">
+                    <h3>Simple & Lightweight</h3>
+                    <p>
+                        Each component is lightweight and easy to copy directly into your project.
+                        Built using clean HTML, CSS, and JavaScript with zero external frameworks or heavy libraries.
+                    </p>
+                </div>
+
+                <div id="panel-wcag" role="tabpanel" aria-labelledby="tab-wcag" class="tab-panel" hidden>
+                    <h3>Built for Everyone</h3>
+                    <p>
+                        Features high contrast text, visible focus outlines for keyboard navigation, and full support
+                        for screen reader announcements out of the box.
+                    </p>
+                </div>
+
+                <div id="panel-specs" role="tabpanel" aria-labelledby="tab-specs" class="tab-panel" hidden>
+                    <h3>Keyboard Navigation</h3>
+                    <p>
+                        Use your `Left` and `Right` arrow keys to move between tabs.
+                        Press `Home` to jump to the first tab, or `End` to jump to the last tab.
+                    </p>
+                </div>
+
+                <div id="code-tabs" class="code-snippet-box" hidden>
+                    <button class="copy-code-btn">Copy Code</button>
+                    <code>&lt;div role="tablist" aria-label="Tabs"&gt;
+  &lt;button role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1"&gt;Tab 1&lt;/button&gt;
+  &lt;button role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1"&gt;Tab 2&lt;/button&gt;
+&lt;/div&gt;
+&lt;div id="panel-1" role="tabpanel" aria-labelledby="tab-1"&gt;Content 1&lt;/div&gt;
+&lt;div id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden&gt;Content 2&lt;/div&gt;</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Component 2: Accordion -->
+        <section id="accordion-section" class="accordion-section" aria-labelledby="accordion-heading">
+            <div class="accordion-container">
+                <div class="component-showcase-header">
+                    <div>
+                        <h2 id="accordion-heading" class="section-title" style="font-size: 1.5rem;">Accordion Component
+                        </h2>
+                        <p class="section-subtitle">Click any item to expand and read details.</p>
+                    </div>
+                    <button class="code-toggle-btn" data-target-code="code-accordion" aria-expanded="false">
+                        View Code
+                    </button>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-item is-open">
+                        <h3 class="accordion-header">
+                            <button class="accordion-trigger" aria-expanded="true" aria-controls="acc-panel-1"
+                                id="acc-trig-1">
+                                <span>How do I use these components in my website?</span>
+                                <svg class="accordion-icon" viewBox="0 0 24 24">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </button>
+                        </h3>
+                        <div id="acc-panel-1" class="accordion-panel" role="region" aria-labelledby="acc-trig-1">
+                            Simply copy the HTML and CSS into your project files. Everything works directly in any
+                            modern browser with no build steps or npm packages required.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-panel-2"
+                                id="acc-trig-2">
+                                <span>Are these components accessible to all users?</span>
+                                <svg class="accordion-icon" viewBox="0 0 24 24">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </button>
+                        </h3>
+                        <div id="acc-panel-2" class="accordion-panel" role="region" aria-labelledby="acc-trig-2" hidden>
+                            Yes! All text colors pass contrast checks, interactive buttons have high-visibility focus
+                            borders, and full keyboard navigation works seamlessly.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-panel-3"
+                                id="acc-trig-3">
+                                <span>Can I navigate using only my keyboard?</span>
+                                <svg class="accordion-icon" viewBox="0 0 24 24">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </button>
+                        </h3>
+                        <div id="acc-panel-3" class="accordion-panel" role="region" aria-labelledby="acc-trig-3" hidden>
+                            Yes! Press Tab to highlight any question, then press Enter or Space to open and close it.
+                            Use Up and Down arrow keys to move between questions.
+                        </div>
+                    </div>
+                </div>
+
+                <div id="code-accordion" class="code-snippet-box" hidden>
+                    <button class="copy-code-btn">Copy Code</button>
+                    <code>&lt;div class="accordion-item"&gt;
+  &lt;h3 class="accordion-header"&gt;
+    &lt;button class="accordion-trigger" aria-expanded="false" aria-controls="sec-1"&gt;Title&lt;/button&gt;
+  &lt;/h3&gt;
+  &lt;div id="sec-1" class="accordion-panel" role="region" hidden&gt;Panel Content&lt;/div&gt;
+&lt;/div&gt;</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Component 3: Data Table -->
+        <section id="table-section" class="table-section" aria-labelledby="table-heading">
+            <div class="table-card">
+                <div class="component-showcase-header">
+                    <div>
+                        <h2 id="table-heading" class="section-title" style="font-size: 1.5rem;">Data Table Component
+                        </h2>
+                        <p class="section-subtitle">Search, sort, and browse component data easily.</p>
+                    </div>
+                    <button class="code-toggle-btn" data-target-code="code-table" aria-expanded="false">
+                        View Code
+                    </button>
+                </div>
+
+                <div class="table-controls">
+                    <div class="search-wrapper">
+                        <svg class="search-icon-svg" viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" id="table-search-input" class="search-input"
+                            placeholder="Type to search components..." aria-label="Search components data table" />
+                    </div>
+                    <span id="table-count-badge" class="table-meta-badge">5 components showing</span>
+                </div>
+
+                <div class="table-responsive-wrapper">
+                    <table id="demo-data-table" class="data-table" aria-label="Components Register">
+                        <thead>
+                            <tr>
+                                <th scope="col" aria-sort="none">
+                                    <span class="th-content">Component <svg class="sort-indicator" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg></span>
+                                </th>
+                                <th scope="col" aria-sort="none">
+                                    <span class="th-content">Type <svg class="sort-indicator" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg></span>
+                                </th>
+                                <th scope="col" aria-sort="none">
+                                    <span class="th-content">Contrast <svg class="sort-indicator" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg></span>
+                                </th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Modal Dialog</strong></td>
+                                <td><code>Popup Dialog</code></td>
+                                <td>11.2 : 1</td>
+                                <td><span class="status-pill pass">Passed</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tabs Navigation</strong></td>
+                                <td><code>Navigation</code></td>
+                                <td>9.4 : 1</td>
+                                <td><span class="status-pill pass">Passed</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accordion</strong></td>
+                                <td><code>Collapsible</code></td>
+                                <td>8.8 : 1</td>
+                                <td><span class="status-pill pass">Passed</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contact Form</strong></td>
+                                <td><code>Form Input</code></td>
+                                <td>10.1 : 1</td>
+                                <td><span class="status-pill pass">Passed</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Toast Alert</strong></td>
+                                <td><code>Notification</code></td>
+                                <td>12.0 : 1</td>
+                                <td><span class="status-pill pass">Passed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-pagination">
+                    <span id="pagination-info" class="pagination-info">Showing 1 to 5 of 5 entries</span>
+                    <div class="pagination-btns">
+                        <button class="btn btn-secondary btn-sm" disabled aria-label="Previous page">Previous</button>
+                        <button class="btn btn-secondary btn-sm" disabled aria-label="Next page">Next</button>
+                    </div>
+                </div>
+
+                <div id="code-table" class="code-snippet-box" hidden>
+                    <button class="copy-code-btn">Copy Code</button>
+                    <code>&lt;table aria-label="Data Table"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col" aria-sort="ascending" tabindex="0"&gt;Name&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Component 4: Tooltips & Notifications -->
+        <section class="accordion-section" aria-labelledby="interactive-heading">
+            <div class="accordion-container">
+                <div class="component-showcase-header">
+                    <div>
+                        <h2 id="interactive-heading" class="section-title" style="font-size: 1.5rem;">Tooltips &
+                            Notifications</h2>
+                        <p class="section-subtitle">Interactive popups and quick alert messages.</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; margin-top: 1rem;">
+                    <!-- Tooltip Demo -->
+                    <div class="tooltip-wrapper">
+                        <button class="btn btn-secondary tooltip-trigger">
+                            Hover or Focus for Tooltip
+                        </button>
+                        <div class="tooltip-box" role="tooltip">
+                            Press Escape to close this tooltip.
+                        </div>
+                    </div>
+
+                    <!-- Toast Triggers -->
+                    <button class="btn btn-primary" data-toast-trigger data-toast-type="success"
+                        data-toast-title="Success" data-toast-msg="Your changes were saved successfully.">
+                        Show Success Alert
+                    </button>
+
+                    <button class="btn btn-outline" data-toast-trigger data-toast-type="warning"
+                        data-toast-title="Warning" data-toast-msg="Please review your settings before continuing.">
+                        Show Warning Alert
+                    </button>
+
+                    <button class="btn btn-secondary" data-toast-trigger data-toast-type="error"
+                        data-toast-title="Error" data-toast-msg="Unable to complete request. Please try again.">
+                        Show Error Alert
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Dialog Component -->
         <dialog id="demo-modal" class="modal" aria-labelledby="modal-title" aria-describedby="modal-description">
             <div class="modal-content">
                 <header class="modal-header">
-                    <h2 id="modal-title" class="modal-title">Get Started with DevSuite</h2>
+                    <h2 id="modal-title" class="modal-title">Create Your Account</h2>
                     <button type="button" class="modal-close-btn" id="close-modal-btn" aria-label="Close dialog">
                         &times;
                     </button>
@@ -60,13 +417,14 @@
 
                 <div class="modal-body">
                     <p id="modal-description">
-                        Create your developer account to access thousands of accessible UI components, templates, and
-                        full project boilerplates.
+                        Enter your email below to get free access to all components and updates.
                     </p>
                     <form id="modal-form" method="dialog" class="modal-form">
-                        <label for="user-email" class="form-label">Email Address</label>
-                        <input type="email" id="user-email" class="form-input" placeholder="developer@example.com"
-                            required />
+                        <div class="form-group">
+                            <label for="user-email" class="form-label">Email Address</label>
+                            <input type="email" id="user-email" class="form-input" placeholder="name@example.com"
+                                required />
+                        </div>
                     </form>
                 </div>
 
@@ -76,20 +434,20 @@
                 </footer>
             </div>
         </dialog>
+
         <!-- Pricing Section Component -->
         <section id="pricing" class="pricing-section" aria-labelledby="pricing-title">
             <div class="pricing-header">
-                <h2 id="pricing-title" class="section-title">Flexible Plans for Every Developer</h2>
-                <p class="section-subtitle">Choose the perfect tier to start building accessible, modern applications.
-                </p>
+                <h2 id="pricing-title" class="section-title">Plans & Pricing</h2>
+                <p class="section-subtitle">Pick a plan that fits your project needs.</p>
             </div>
 
             <div class="pricing-grid">
-                <!-- Tier 1: Free Starter -->
+                <!-- Tier 1: Starter -->
                 <article class="pricing-card">
                     <div class="card-header">
                         <h3 class="plan-title">Starter</h3>
-                        <p class="plan-desc">For hobbyists and individual learners.</p>
+                        <p class="plan-desc">For personal projects and learning.</p>
                         <div class="plan-price">
                             <span class="currency">$</span>
                             <span class="amount">0</span>
@@ -97,9 +455,24 @@
                         </div>
                     </div>
                     <ul class="plan-features" aria-label="Starter plan features">
-                        <li class="feature-item">5 Core Components</li>
-                        <li class="feature-item">Community Forum Access</li>
-                        <li class="feature-item">Standard CSS Documentation</li>
+                        <li class="feature-item">
+                            <svg class="feature-icon-svg" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            5 Core UI Components
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon-svg" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Community Support
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon-svg" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Standard Documentation
+                        </li>
                     </ul>
                     <button class="btn btn-secondary card-btn">Get Started</button>
                 </article>
@@ -109,7 +482,7 @@
                     <div class="badge" aria-label="Most popular plan">Most Popular</div>
                     <div class="card-header">
                         <h3 class="plan-title">Pro Developer</h3>
-                        <p class="plan-desc">For freelancers and full-stack builders.</p>
+                        <p class="plan-desc">For freelancers and web developers.</p>
                         <div class="plan-price">
                             <span class="currency">$</span>
                             <span class="amount">29</span>
@@ -117,10 +490,30 @@
                         </div>
                     </div>
                     <ul class="plan-features" aria-label="Pro plan features">
-                        <li class="feature-item">All 50+ Accessible Primitives</li>
-                        <li class="feature-item">Priority Discord Support</li>
-                        <li class="feature-item">Figma & Blender Source Files</li>
-                        <li class="feature-item">Unlimited Projects</li>
+                        <li class="feature-item">
+                            <svg class="feature-icon-svg" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            All 8 UI Components
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon-svg" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Accessibility Check Reports
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon-svg" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Starter Code Templates
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon-svg" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Unlimited Commercial Use
+                        </li>
                     </ul>
                     <button class="btn btn-primary card-btn">Upgrade to Pro</button>
                 </article>
@@ -129,7 +522,7 @@
                 <article class="pricing-card">
                     <div class="card-header">
                         <h3 class="plan-title">Enterprise</h3>
-                        <p class="plan-desc">For engineering teams and scaling startups.</p>
+                        <p class="plan-desc">For teams and scaling companies.</p>
                         <div class="plan-price">
                             <span class="currency">$</span>
                             <span class="amount">99</span>
@@ -137,21 +530,42 @@
                         </div>
                     </div>
                     <ul class="plan-features" aria-label="Enterprise plan features">
-                        <li class="feature-item">Custom Component Requests</li>
-                        <li class="feature-item">1-on-1 Accessibility Audits</li>
-                        <li class="feature-item">Dedicated SLA Support</li>
-                        <li class="feature-item">Custom Team Training</li>
+                        <li class="feature-item">
+                            <svg class="feature-icon-svg" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Custom Component Setup
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon-svg" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            1-on-1 Code Audits
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon-svg" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Priority Support
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon-svg" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Team Member Accounts
+                        </li>
                     </ul>
                     <button class="btn btn-secondary card-btn">Contact Sales</button>
                 </article>
             </div>
         </section>
-        <!-- Interactive Form & Accessible Validation Component -->
+
+        <!-- Interactive Form & Validation Component -->
         <section id="contact-form-section" class="form-section" aria-labelledby="form-title">
             <div class="form-card">
-                <h2 id="form-title" class="form-title">Developer Registration</h2>
-                <p class="form-subtitle">Fill out your profile details. All inputs feature real-time accessible error
-                    announcements.</p>
+                <h2 id="form-title" class="form-title">Contact & Registration</h2>
+                <p class="form-subtitle">Fill out the form below. Errors will show up instantly if any field is missed.
+                </p>
 
                 <form id="accessible-form" class="accessible-form" novalidate>
                     <!-- Input Group 1: Full Name -->
@@ -172,7 +586,7 @@
                             Work Email <span class="required-asterisk" aria-hidden="true">*</span>
                         </label>
                         <input type="email" id="work-email" name="email" class="form-input"
-                            placeholder="ada@lovelace.dev" required aria-required="true"
+                            placeholder="ada@example.com" required aria-required="true"
                             aria-describedby="email-error" />
                         <span id="email-error" class="form-error" aria-live="polite"></span>
                     </div>
@@ -188,7 +602,7 @@
                         <span id="password-error" class="form-error" aria-live="polite"></span>
                     </div>
 
-                    <button type="submit" class="btn btn-primary form-submit-btn">Complete Registration</button>
+                    <button type="submit" class="btn btn-primary form-submit-btn">Submit Registration</button>
 
                     <!-- Global Form Alert Container -->
                     <div id="form-status" class="form-status" role="status" aria-live="assertive"></div>
@@ -198,10 +612,24 @@
 
     </main>
 
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="page-container" style="padding-bottom: 0;">
+            <p><strong>DevSuite UI Component Library</strong></p>
+            <p class="footer-meta">Simple, accessible web components built with clean HTML, CSS, and JavaScript.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/a11y-toolbar.js"></script>
     <script src="scripts/navbar.js"></script>
     <script src="scripts/form.js"></script>
     <script src="scripts/modal.js"></script>
     <script src="scripts/tabs.js"></script>
+    <script src="scripts/accordion.js"></script>
+    <script src="scripts/table.js"></script>
+    <script src="scripts/toast.js"></script>
+    <script src="scripts/tooltip.js"></script>
 </body>
 
 </html>

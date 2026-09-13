@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (targetPanel) {
             targetPanel.hidden = false;
         }
+
+        window.announceA11yMessage && window.announceA11yMessage(`Switched tab to ${targetTab.textContent.trim()}`);
     }
 
     // Mouse Click Event
@@ -60,10 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 nextIndex = tabs.length - 1;
                 break;
             default:
-                return; // Ignore unhandled keys
+                return;
         }
 
-        e.preventDefault(); // Prevent page scrolling on arrow keys
+        e.preventDefault();
         switchTab(tabs[nextIndex]);
     });
 });

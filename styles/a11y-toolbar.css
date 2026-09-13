@@ -1,0 +1,265 @@
+/* Accessibility Top Bar */
+.a11y-bar {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.5rem 2rem;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.a11y-status-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.a11y-badge {
+    background-color: var(--brand-primary);
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.a11y-controls-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.a11y-btn {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.375rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.a11y-btn:hover {
+    background-color: var(--bg-surface-hover);
+    border-color: var(--brand-accent);
+}
+
+.a11y-btn.active {
+    background-color: var(--brand-primary);
+    color: #FFFFFF;
+    border-color: var(--brand-primary);
+}
+
+/* Showcase Banner */
+.hero-showcase {
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-surface) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(42, 36, 33, 0.03);
+}
+
+.showcase-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--brand-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-showcase h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-showcase p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 720px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.6;
+}
+
+.showcase-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-val {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+    display: block;
+}
+
+.stat-lbl {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Component Live Inspector & Code Drawer */
+.component-showcase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.code-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.4rem 0.85rem;
+    border-radius: 0.375rem;
+    font-size: 0.825rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.code-toggle-btn:hover {
+    background-color: var(--bg-surface-hover);
+}
+
+.code-snippet-box {
+    margin-top: 1.25rem;
+    background-color: #26201D;
+    color: #F7F4EF;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    overflow-x: auto;
+    position: relative;
+}
+
+.copy-code-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #FFFFFF;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.copy-code-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Live ARIA Logger Box */
+.a11y-live-logger {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    margin: 3rem 0;
+}
+
+.logger-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.logger-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logger-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #27AE60;
+    display: inline-block;
+}
+
+.logger-terminal {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    padding: 0.75rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.825rem;
+    color: var(--brand-primary);
+    min-height: 50px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+/* Font Size Scaling utility classes */
+body.text-scale-lg {
+    font-size: 112.5%;
+}
+
+body.text-scale-xl {
+    font-size: 125%;
+}
+
+/* High Contrast Mode */
+body.high-contrast {
+    --bg-primary: #FFFFFF;
+    --bg-surface: #F0F0F0;
+    --bg-card: #FFFFFF;
+    --bg-surface-hover: #E0E0E0;
+    --text-primary: #000000;
+    --text-secondary: #222222;
+    --brand-primary: #5C3A21;
+    --border-color: #000000;
+    --focus-ring: 4px solid #000000;
+}

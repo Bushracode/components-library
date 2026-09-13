@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function openModal() {
         lastActiveElement = document.activeElement; // Save currently focused element
         modal.showModal(); // Native API opens modal top-layer and locks background scrolling
+        window.announceA11yMessage && window.announceA11yMessage('Modal dialog opened. Focus trapped.');
 
         // Auto-focus first input or fallback to close button
         const focusables = getFocusableElements();
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeModal() {
         modal.close();
+        window.announceA11yMessage && window.announceA11yMessage('Modal dialog closed. Focus restored.');
         if (lastActiveElement) {
             lastActiveElement.focus(); // Restore focus to trigger button
         }
@@ -61,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event Listeners
     openModalBtn.addEventListener('click', openModal);
-    closeModalBtn.addEventListener('click', closeModal);
-    cancelModalBtn.addEventListener('click', closeModal);
+    closeModalBtn && closeModalBtn.addEventListener('click', closeModal);
+    cancelModalBtn && cancelModalBtn.addEventListener('click', closeModal);
 
     // Close when clicking native backdrop area
     modal.addEventListener('click', (event) => {

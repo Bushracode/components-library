@@ -11,14 +11,15 @@
 
 .section-title {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
 }
 
 .section-subtitle {
     color: var(--text-secondary);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 
 /* Responsive CSS Grid */
@@ -31,26 +32,27 @@
 
 /* Card Container */
 .pricing-card {
-    background-color: var(--bg-surface);
+    background-color: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 1rem;
     padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
     position: relative;
+    box-shadow: 0 4px 20px rgba(42, 36, 33, 0.03);
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .pricing-card:hover {
     transform: translateY(-4px);
     border-color: var(--brand-primary);
-    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 24px -5px rgba(140, 99, 67, 0.12);
 }
 
 /* Highlighted Popular Plan */
 .pricing-card.card-popular {
     border: 2px solid var(--brand-primary);
-    background-color: rgba(16, 185, 129, 0.08);
+    background-color: var(--brand-light);
 }
 
 /* Badge Overlay */
@@ -59,14 +61,14 @@
     top: -12px;
     right: 1.5rem;
     background-color: var(--brand-primary);
-    color: white;
+    color: #FFFFFF;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 8px rgba(140, 99, 67, 0.2);
 }
 
 /* Card Header & Price */
@@ -75,8 +77,8 @@
 }
 
 .plan-title {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
@@ -95,7 +97,7 @@
 
 .plan-price .currency {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
 }
 
@@ -104,6 +106,7 @@
     font-weight: 800;
     color: var(--text-primary);
     line-height: 1;
+    letter-spacing: -0.02em;
 }
 
 .plan-price .period {
@@ -116,7 +119,6 @@
     list-style: none;
     margin-bottom: 2.5rem;
     flex-grow: 1;
-    /* Pushes action button to bottom */
 }
 
 .feature-item {
@@ -125,12 +127,16 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    font-size: 0.925rem;
 }
 
-.feature-item::before {
-    content: "✓";
-    color: var(--brand-primary);
-    font-weight: 700;
+.feature-icon-svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--brand-primary);
+    fill: none;
+    stroke-width: 2.5;
+    flex-shrink: 0;
 }
 
 .card-btn {

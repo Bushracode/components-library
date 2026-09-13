@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function setError(input, errorEl, message) {
         input.setAttribute('aria-invalid', 'true');
         errorEl.textContent = message; // Screen readers announce via aria-live="polite"
+        window.announceA11yMessage && window.announceA11yMessage(`Validation Error [${input.name}]: ${message}`);
     }
 
     function clearError(input, errorEl) {
@@ -95,11 +96,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isNameValid && isEmailValid && isPasswordValid) {
             formStatus.className = 'form-status success';
-            formStatus.textContent = 'Registration successful! Processing your profile...';
+            formStatus.textContent = 'Registration successful! Profile credentials validated.';
+            window.announceA11yMessage && window.announceA11yMessage('Form submitted successfully!');
+            if (window.showToast) {
+                window.showToast('Registration Complete', 'Your developer profile has been created.', 'success');
+            }
             form.reset();
         } else {
             formStatus.className = 'form-status error';
             formStatus.textContent = 'Form submission failed. Please fix the highlighted errors above.';
+            window.announceA11yMessage && window.announceA11yMessage('Form submission failed due to invalid fields');
 
             // Focus management: Shift focus to first invalid input field
             const firstInvalidField = form.querySelector('[aria-invalid="true"]');
